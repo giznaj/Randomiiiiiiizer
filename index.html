@@ -1,34 +1,37 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-<script src="canvasjs.min.js"></script>
-<script type="text/javascript">
-
-window.onload = function () {
-	var chart = new CanvasJS.Chart("chartContainer", {
-		title:{
-			text: "My First Veggie Chart"              
-		},
-		data: [              
-		{
-			// Change type to "doughnut", "line", "splineArea", etc.
-			type: "column",
-			dataPoints: [
-				{ label: "apple",  y: 10  },
-				{ label: "orange", y: 15  },
-				{ label: "banana", y: 25  },
-				{ label: "mango",  y: 30  },
-				{ label: "grape",  y: 28  },
-				{ label: "dragon", y: 48  }
-			]
-		}
-		]
-	});
-	chart.render();
-}
-</script>
+  <meta charset="utf-8">
+  <!--Script Reference[1]-->
+  <script src="zingchart.min.js"></script>
+<script src="randomizer.js"></script>
+<script type="text/javascript"></script>
 </head>
 <body>
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+  <!--Chart Placement[2]-->
+  <div id="chartDiv"></div>
+  <script>
+    var chartData = {
+      type: 'bar',  // Specify your chart type here.
+      title: {
+        text: 'Randomiiiiiizer' // Adds a title to your chart
+      },
+      legend: {}, // Creates an interactive legend
+      series: [  // Insert your series data here.
+          { values: [35, 42, 67, 89]},
+          { values: [28, 40, 39, 36]}
+      ]
+    };
+    zingchart.render({ // Render Method[3]
+      id: 'chartDiv',
+      data: chartData,
+      height: 400,
+      width: 600
+    });
+  </script>
+  
+  <div id="buttons">
+	<input type="button" value="Generate" name="btn_generate" onClick="randomize()" class="">
+  
 </body>
 </html>
