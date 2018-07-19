@@ -11,29 +11,90 @@
   <!--Chart Placement[2]-->
   <div id="chartDiv"></div>
   <script>
+
+	var computerArray=new Array();
+	var humanArray=new Array();
+
+  var valueArray=[0,0,0,0,0,0,0,0,0,0,0];
+	
     var chartData = {
       type: 'bar',  // Specify your chart type here.
       title: {
-        text: 'Randomiiiiiizer' // Adds a title to your chart
+        text: 'Randomiiiizer' // Adds a title to your chart // !!!!!!!!! MAKE A WaY TO RANDOMIZE THE NUMBER OF 'I' LETTERS YOU SEE IN THE NAME
       },
       legend: {}, // Creates an interactive legend
-      series: [  // Insert your series data here.
-          { values: [35, 42, 67, 89]},
-          { values: [28, 40, 39, 36]}
-      ]
+      "series":[{values:valueArray}],
+      
+      scaleX:{
+ 	    label: {
+ 	    text: "number of matches",
+ 	    color: "red",
+ 	    fontSize: 14
+      }
+    },
+
+    scaleY:{
+ 	    label: {
+ 	    text: "frequency",
+ 	    color: "red",
+ 	    fontSize: 14
+      }
+    },
+
     };
+
     zingchart.render({ // Render Method[3]
       id: 'chartDiv',
       data: chartData,
       height: 400,
       width: 600
     });
+
+    function renderMyChart()
+    {
+      computerArray=getComputer();
+      var chartData = {
+      type: 'bar',  // Specify your chart type here.
+      title: {
+        text: 'Randomiiiizer' // Adds a title to your chart // !!!!!!!!! MAKE A WaY TO RANDOMIZE THE NUMBER OF 'I' LETTERS YOU SEE IN THE NAME
+      },
+      legend: {}, // Creates an interactive legend
+      "series":[{values:computerArray}],
+
+      scaleX:{
+ 	    label: {
+ 	    text: "number of matches",
+ 	    color: "red",
+ 	    fontSize: 14
+      }
+    },
+
+    scaleY:{
+ 	    label: {
+ 	    text: "frequency",
+ 	    color: "red",
+ 	    fontSize: 14
+      }
+    },
+            
+    };
+
+    zingchart.render({ // Render Method[3]
+      id: 'chartDiv',
+      data: chartData,
+      height: 400,
+      width: 600
+    });
+    }
+
   </script>
   
   <div id="buttons">
 	<input type="button" value="Randomize Computer" name="btn_generate" onClick="randomizeComputer()" class="">
 	<input type="button" value="Randomize Human" name="btn_generate" onClick="randomizeHuman()" class="">
-	<input type="button" value="Show Me" name="btn_showMe" onClick="showMe()" class="">
+  <input type="button" value="Alert PC & Human" name="btn_alertPcHuman" onClick="alertPcHuman()" class="">
+  <input type="button" value="Reload" name="btn_render" onClick="renderMyChart()" class="">
+  
   
 </body>
 </html>
