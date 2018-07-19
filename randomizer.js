@@ -3,8 +3,8 @@
 // Global vars
 var done="x";
 var population=70;
-var computerDraw=5;
-var humanDraw=2;
+var computerDraw=20;
+var humanDraw=10;
 
 var computerNumbers=new Array();
 var humanNumbers=new Array();
@@ -27,6 +27,12 @@ function randomizeHuman()
 	{
 		humanNumbers[x]=(Math.round(Math.random()*69)+1);
 	}
+}
+
+function randomizePcHuman()
+{
+	computerNumbers = chance.unique(chance.natural, 20, {min: 1, max: 100});
+	humanNumbers = chance.unique(chance.natural, 10, {min: 1, max: 100});
 }
 
 function alertPcHuman()
