@@ -13,9 +13,10 @@
   <div id="chartDiv"></div>
   <script>
 
-	var computerArray=new Array();
-	var humanArray=new Array();
-  var initialArray=[0,1,2,3,4,5,6,7,8,9,10];
+	var computerArray=new Array(); //stores the generated numbers for the computer
+  var humanArray=new Array(); //store the generated numbers for the player
+  var matchArray=[0,0,0,0,0,0,0,0,0,0,0]; //stores the frequency for each possibility (number of matching numbers between computer and human : 0-10)
+  var initialArray=[0,1,2,3,4,5,6,7,8,9,10]; //this will change or disappear.  using it onLoad so there is a nice graphic to look at.
 	
     var chartData = {
       type: 'bar',  // Specify your chart type here.
@@ -50,11 +51,12 @@
       width: 600
     });
 
+    //get the value(s) in the array from the external JS file and assign to local array/object
     function countMatchedNumbers()
     {
-      //get the value(s) in the array from the external JS file and assign to local array/object
       computerArray=getComputer();
       humanArray=getHuman();
+      matchArray=getMatch();
 
       //render the data
       renderMyChart();
@@ -68,7 +70,7 @@
         text: 'Randomiiiizer' // Adds a title to your chart // !!!!!!!!! MAKE A WaY TO RANDOMIZE THE NUMBER OF 'I' LETTERS YOU SEE IN THE NAME
       },
       legend: {}, // Creates an interactive legend
-      "series":[{values:computerArray}],
+      "series":[{values:matchArray}],
 
       scaleX:{
  	    label: {
@@ -103,6 +105,7 @@
   <input type="button" value="Randomize Human" name="btn_generateHuman" onClick="randomizeHuman()" class="">
   <input type="button" value="Randomize Both" name="btn_generateBoth" onclick="randomizePcHuman()" class="">
   <input type="button" value="Alert PC & Human" name="btn_alertPcHuman" onClick="alertPcHuman()" class="">
+  <input type="button" value="Matches" name="btn_find_matches" onClick="findMatches()" class="">
   <input type="button" value="Reload" name="btn_render" onClick="countMatchedNumbers()" class="">
   
 </body>
