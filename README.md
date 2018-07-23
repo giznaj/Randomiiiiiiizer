@@ -18,23 +18,25 @@ After a single play of the game, when you reload the graph, a single column in t
 
 The 'Multiple Draws' section will show you the data after playing the game a large number of times.
 
-### Single Draw
-* Randomize Both - generates both (computer and player) of your numbers in one call
-* Alert PC & Human - alert that shows the 2 sets of numbers
-* Reload - reloads the graph with the computers 20 numbers
-
-### Multiple Draw
-* '# of Draws' - the number of times to play the game between the player and the computer
-* Draw - draws random sets of numbers for '# of Draws' times for both the player and computer 
-
-### Installation Notes
+### Installation Instructions
 1. copy files to a local folder
 2. download the JS libraries from the references above
   1. if you don't want to download the JS libraries, just modify the JS 'script' references in the HTML to point to them externally
 3. open the index.html file in the browser of your choice.  
 4. HAVE FUN!!!
 
+### Single Draw
+* Randomize Both - generates both (computer and player) of your numbers in one call
+* Alert PC & Human - alert that shows the 2 sets of numbers
+* Reload - reloads the graph with the new data (single new observation)
+
+### Multiple Draw
+* '# of Draws' - the number of times to play the game between the player and the computer
+* Draw - draws random sets of numbers for '# of Draws' times for both the player and computer 
+* Reload - reloads the graph with the new data (multiple new observations)
+
 ### Odds
+These are the official odds of playing the official game through the OLG
 [Odds](https://lottery.olg.ca/en-ca/daily-games/daily-keno/daily-keno-odds-and-payouts#dailykeno-odds/)
 
 ### Notes
