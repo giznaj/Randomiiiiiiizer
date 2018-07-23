@@ -11,6 +11,16 @@
 <body>
   <!--Chart Placement[2]-->
   <div id="chartDiv"></div>
+  <hr>
+  <p>Single draw of random numbers</p>
+  <div id="buttons">
+      <!-- <input type="button" value="Randomize Computer" name="btn_generatePc" onClick="randomizeComputer()" class=""> -->
+      <!-- <input type="button" value="Randomize Human" name="btn_generateHuman" onClick="randomizeHuman()" class=""> -->
+      <input type="button" value="Draw Player & PC" name="btn_generateBoth" onclick="randomizeComputerAndHuman()" class="">
+      <input type="button" value="Alert Player & PC" name="btn_alertPcHuman" onClick="alertPcHuman()" class="">
+      <!-- <input type="button" value="Matches" name="btn_find_matches" onClick="findMatches()" class=""> -->
+      <input type="button" value="Reload Graph" name="btn_render" onClick="countMatchedNumbers()" class="">
+      </div>
   <script>
 
 	var computerArray=new Array(); //stores the generated numbers for the computer
@@ -100,13 +110,14 @@
 
   </script>
   
-  <div id="buttons">
-	<input type="button" value="Randomize Computer" name="btn_generatePc" onClick="randomizeComputer()" class="">
-  <input type="button" value="Randomize Human" name="btn_generateHuman" onClick="randomizeHuman()" class="">
-  <input type="button" value="Randomize Both" name="btn_generateBoth" onclick="randomizePcHuman()" class="">
-  <input type="button" value="Alert PC & Human" name="btn_alertPcHuman" onClick="alertPcHuman()" class="">
-  <input type="button" value="Matches" name="btn_find_matches" onClick="findMatches()" class="">
-  <input type="button" value="Reload" name="btn_render" onClick="countMatchedNumbers()" class="">
+  <hr>
+  <p>multiple draws of random numbers</p>
+  <div id="params">
+      <label for="id_numberOfDraws"># of Draws</label>
+  <input type="text" value="0" name="name_numberOfSpins" id="id_numberOfSpins">
+  <input type="button" value="Draw" name="btn_draw" onclick="multipleDraws()" class=="">
+  <input type="button" value="Reload Graph" name="btn_render" onClick="countMatchedNumbers()" class="">
+  </div>
   
 </body>
 </html>

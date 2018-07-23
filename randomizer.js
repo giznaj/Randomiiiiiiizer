@@ -5,6 +5,7 @@ var done="x";
 var population=70;
 var computerDraw=20;
 var humanDraw=10;
+var numberOfSpins=0;
 
 var computerNumbers=new Array();
 var humanNumbers=new Array();
@@ -30,11 +31,37 @@ function randomizeHuman()
 	}
 }
 
-//generates random date for both computer and player (using the chance library)
-function randomizePcHuman()
+//generates random data for both computer and player (using the chance library)
+function randomizeComputerAndHuman()
 {
 	computerNumbers = chance.unique(chance.natural, 20, {min: 0, max: 70});
 	humanNumbers = chance.unique(chance.natural, 10, {min: 0, max: 70});
+
+	//call the findMatches() method
+	findMatches();
+}
+
+//generates random data for both computer and player for N # of loops (takes a parameter)
+function multipleDraws()
+{
+	var x;
+	numberOfSpins=document.getElementById('id_numberOfSpins').value;
+	if(numberOfSpins > 500 || numberOfSpins < 1)
+	{
+		alert("please keep the number between 1 and 500 for now.")
+		numberOfSpins=0;
+		document.getElementById('id_numberOfSpins').value=0;
+	}
+	else
+	{
+		//do nothing for now
+	}
+	for(x=0; x<numberOfSpins; x++)
+	{
+		randomizeComputerAndHuman();
+	}
+	//for testing
+	//alert(numberOfSpins);
 }
 
 //finds the number of matches between the computer's numbers and the player's numbers
@@ -58,7 +85,8 @@ function findMatches()
 	}
 	indexToUpdate=numberOfMatches;
 	matchArray[indexToUpdate] += 1;
-	alert("number of matches: " + numberOfMatches);
+	//used for testing purposes
+	//alert("number of matches: " + numberOfMatches);
 }
 
 //alerts both the computer and player arrays
@@ -66,7 +94,7 @@ function alertPcHuman()
 {
 	alert("It's time to start randomiiiiiiing! \n" 
 	+ "Computer Numbers: " + computerNumbers.toString() + "\n"
-	+ "Human Numbers: " + humanNumbers.toString());
+	+ "Player Numbers: " + humanNumbers.toString());
 }
 
 //returns the computer's array to the GUI call
