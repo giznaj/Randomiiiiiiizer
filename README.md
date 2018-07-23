@@ -22,7 +22,7 @@ The 'Multiple Draws' section will show you the data after playing the game a lar
 1. copy files to a local folder
 2. download the JS libraries from the references above
   1. if you don't want to download the JS libraries, just modify the JS 'script' references in the HTML to point to them externally
-3. open the index.html file in the browser of your choice.  
+3. open the index.html file in the browser of your choice
 4. HAVE FUN!!!
 
 ### Single Draw
@@ -30,7 +30,7 @@ The 'Multiple Draws' section will show you the data after playing the game a lar
 * Alert PC & Human - alert that shows the 2 sets of numbers
 * Reload - reloads the graph with the new data (single new observation)
 
-### Multiple Draw
+### Multiple Draws
 * '# of Draws' - the number of times to play the game between the player and the computer
 * Draw - draws random sets of numbers for '# of Draws' times for both the player and computer 
 * Reload - reloads the graph with the new data (multiple new observations)
