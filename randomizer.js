@@ -8,9 +8,16 @@ var humanDraw=10;
 var numberOfSpins=0;
 var numberOfMatches;
 
-var computerNumbers=new Array();
-var humanNumbers=new Array();
-var matchArray=[0,0,0,0,0,0,0,0,0,0,0];
+var drawMin=0;
+var drawMax=0;
+var drawMean=0;
+var drawMedian=0;
+var drawMode=0;
+
+var computerNumbers=new Array(); //stores the random numbers for the computer
+var humanNumbers=new Array(); //stores the random numbers for the player
+var mmmmmArray=new Array(); //stores the values for the 5 m's
+var matchArray=[0,0,0,0,0,0,0,0,0,0,0]; //stores the values for the match array (number/frequency)
 
 //generates random data (for computer)
 function randomizeComputer()
@@ -74,6 +81,9 @@ function multipleDraws()
 
 	document.getElementById('btn_draw_id').disabled=false;
 	document.getElementById('btn_render_id').disabled=false;
+
+	//call the MMMMM method(s)
+
 }
 
 //finds the number of matches between the computer's numbers and the player's numbers
@@ -81,7 +91,7 @@ function findMatches()
 {
 	var x;
 	var y;
-	var numberOfMatches=0;
+	numberOfMatches=0;
 	var indexToUpdate=0;
 
 	for(x=0; x<humanNumbers.length; x++)
@@ -101,6 +111,23 @@ function findMatches()
 	//alert("number of matches: " + numberOfMatches);
 }
 
+//calculates the MMMMM
+function calculateMMMMM()
+{
+	var x;
+	//humanNumbers.sort(function(a, b){return a - b});
+	//computerNumbers.sort(function(a, b){return a - b});
+	//matchArray.sort(function(a, b){return a - b});
+	alert(matchArray);
+	//min
+	while(matchArray[x]==0)
+	{
+		x++;
+	}
+	drawMin=matchArray[x];
+	alertMMMMM();	
+}
+
 //alerts both the computer and player arrays
 function alertPcHuman()
 {
@@ -108,6 +135,14 @@ function alertPcHuman()
 	+ "Computer Numbers: " + computerNumbers.toString() + "\n"
 	+ "Player Numbers: " + humanNumbers.toString() + "\n"
 	+ "Number of matches: " + numberOfMatches);
+}
+
+//alerts both the computer and player arrays
+function alertMMMMM()
+{
+	alert("Min, Max, Mean, Median and Mode!\n" 
+	+ "Min: " + drawMin + "\n"
+	+ "Sorted: " + humanNumbers);
 }
 
 //returns the computer's array to the GUI call
