@@ -14,12 +14,8 @@
   <hr>
   <p>Single draw of random numbers</p>
   <div id="buttons">
-      <!-- <input type="button" value="Randomize Computer" name="btn_generatePc" onClick="randomizeComputer()" class=""> -->
-      <!-- <input type="button" value="Randomize Human" name="btn_generateHuman" onClick="randomizeHuman()" class=""> -->
       <input type="button" value="Draw Player & PC" name="btn_generateBoth" onclick="randomizeComputerAndHuman()" class="">
       <input type="button" value="Alert Player & PC" name="btn_alertPcHuman" onClick="alertPcHuman()" class="">
-      <!-- <input type="button" value="Matches" name="btn_find_matches" onClick="findMatches()" class=""> -->
-      <!-- <input type="button" value="Reload Graph" name="btn_render" onClick="countMatchedNumbers()" class=""> -->
   </div>
 
 <script>
@@ -114,17 +110,23 @@
   <p>Multiple draws of random numbers</p>
   <div id="params">
       <label for="id_numberOfDraws"># of Draws</label>
-  <input type="text" name="numberOfSpins_name" id="numberOfSpins_id" value="0">
+  <input type="text" name="numberOfDraws_name" id="numberOfDraws_id" value="0">
   <input type="button" value="Draw" name="btn_draw_name" id="btn_draw_id" onclick="multipleDraws()" class=="">
   <hr>
-  <p>Display</p>
+  <p>Display and Data</p>
   <input type="button" value="Reload Graph" name="btn_render_name" id="btn_render_id" onClick="countMatchedNumbers()" class="">
+  <input type="button" value="Delete Data" name="btn_deleteData_name" id="btn_deleteData_id" onClick="deleteData()" class="">
   </div>
 
   <div id=theFiveM>
     <hr>
-    <p>Min, Max, Mean, Median and Mode</p>
+    <p>Min, Max, Mean, Median and Mode.  The MMMMM values relate to the number of matches, not the random sets of generated data.</p>
     <input type="button" value="MMMMM" name="btn_MMMMM_name" id="btn_MMMMM_id" onclick="calculateMMMMM()" class=="">
+  </div>
+
+  <div id=sampling>
+      <hr>
+    <p>Standard deviation</p>
   </div>
   
 </body>
