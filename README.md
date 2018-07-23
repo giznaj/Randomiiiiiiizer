@@ -24,7 +24,7 @@ The 'Multiple Draws' section will show you the data after playing the game a lar
 * Reload - reloads the graph with the computers 20 numbers
 
 ### Multiple Draw
-* # of Draws - the number of times to play the game between the player and the computer
+* '# of Draws' - the number of times to play the game between the player and the computer
 * Draw - draws random sets of numbers for '# of Draws' times for both the player and computer 
 
 ### Installation Notes
