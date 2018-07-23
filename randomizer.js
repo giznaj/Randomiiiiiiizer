@@ -6,6 +6,7 @@ var population=70;
 var computerDraw=20;
 var humanDraw=10;
 var numberOfSpins=0;
+var numberOfMatches;
 
 var computerNumbers=new Array();
 var humanNumbers=new Array();
@@ -44,24 +45,35 @@ function randomizeComputerAndHuman()
 //generates random data for both computer and player for N # of loops (takes a parameter)
 function multipleDraws()
 {
+	//local variables
 	var x;
-	numberOfSpins=document.getElementById('id_numberOfSpins').value;
-	if(numberOfSpins > 500 || numberOfSpins < 1)
+	numberOfSpins=document.getElementById('numberOfSpins_id').value;
+
+	//form validation
+	if(numberOfSpins > 1000 || numberOfSpins < 1)
 	{
-		alert("please keep the number between 1 and 500 for now.")
+		alert("please keep the number between 1 and 1000 for now.")
 		numberOfSpins=0;
-		document.getElementById('id_numberOfSpins').value=0;
+		document.getElementById('numberOfSpins_id').value=0;
 	}
 	else
 	{
 		//do nothing for now
 	}
+
+	//disable buttons on the screen until the draws have finished
+	//document.getElementById('btn_draw').disabled=true;
+	document.getElementById('btn_draw_id').disabled=true;
+	document.getElementById('btn_render_id').disabled=true;
+
+	//draw the random sets of numbers for the number of times specified
 	for(x=0; x<numberOfSpins; x++)
 	{
 		randomizeComputerAndHuman();
 	}
-	//for testing
-	//alert(numberOfSpins);
+
+	document.getElementById('btn_draw_id').disabled=false;
+	document.getElementById('btn_render_id').disabled=false;
 }
 
 //finds the number of matches between the computer's numbers and the player's numbers
@@ -92,9 +104,10 @@ function findMatches()
 //alerts both the computer and player arrays
 function alertPcHuman()
 {
-	alert("It's time to start randomiiiiiiing! \n" 
+	alert("Single draw of random numbers! \n" 
 	+ "Computer Numbers: " + computerNumbers.toString() + "\n"
-	+ "Player Numbers: " + humanNumbers.toString());
+	+ "Player Numbers: " + humanNumbers.toString() + "\n"
+	+ "Number of matches: " + numberOfMatches);
 }
 
 //returns the computer's array to the GUI call

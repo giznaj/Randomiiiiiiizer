@@ -19,16 +19,16 @@
       <input type="button" value="Draw Player & PC" name="btn_generateBoth" onclick="randomizeComputerAndHuman()" class="">
       <input type="button" value="Alert Player & PC" name="btn_alertPcHuman" onClick="alertPcHuman()" class="">
       <!-- <input type="button" value="Matches" name="btn_find_matches" onClick="findMatches()" class=""> -->
-      <input type="button" value="Reload Graph" name="btn_render" onClick="countMatchedNumbers()" class="">
-      </div>
-  <script>
+      <!-- <input type="button" value="Reload Graph" name="btn_render" onClick="countMatchedNumbers()" class=""> -->
+  </div>
 
+<script>
 	var computerArray=new Array(); //stores the generated numbers for the computer
   var humanArray=new Array(); //store the generated numbers for the player
   var matchArray=[0,0,0,0,0,0,0,0,0,0,0]; //stores the frequency for each possibility (number of matching numbers between computer and human : 0-10)
   var initialArray=[0,1,2,3,4,5,6,7,8,9,10]; //this will change or disappear.  using it onLoad so there is a nice graphic to look at.
-	
-    var chartData = {
+
+     var chartData = {
       type: 'bar',  // Specify your chart type here.
       title: {
         text: 'Randomiiiiiiizer' // Adds a title to your chart // !!!!!!!!! MAKE A WaY TO RANDOMIZE THE NUMBER OF 'I' LETTERS YOU SEE IN THE NAME
@@ -108,15 +108,17 @@
     });
     }
 
-  </script>
+</script>
   
   <hr>
-  <p>multiple draws of random numbers</p>
+  <p>Multiple draws of random numbers</p>
   <div id="params">
       <label for="id_numberOfDraws"># of Draws</label>
-  <input type="text" value="0" name="name_numberOfSpins" id="id_numberOfSpins">
-  <input type="button" value="Draw" name="btn_draw" onclick="multipleDraws()" class=="">
-  <input type="button" value="Reload Graph" name="btn_render" onClick="countMatchedNumbers()" class="">
+  <input type="text" name="numberOfSpins_name" id="numberOfSpins_id" value="0">
+  <input type="button" value="Draw" name="btn_draw_name" id="btn_draw_id" onclick="multipleDraws()" class=="">
+  <hr>
+  <p>Display</p>
+  <input type="button" value="Reload Graph" name="btn_render_name" id="btn_render_id" onClick="countMatchedNumbers()" class="">
   </div>
   
 </body>
