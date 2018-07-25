@@ -1,6 +1,6 @@
 # Randomiiiiiiizer
 
-## Generated for educational use (MA570).
+## Developed for educational use (MA570)
 This is a tool to help visualize randomess and probability by displaying data in bar charts.
 
 ## Special thanks
@@ -19,29 +19,29 @@ This is a tool to help visualize randomess and probability by displaying data in
 ### How to use
 This tool is based off the game Keno.  I have preselected the game where you (as the player) pick 10 unique numbers and the computer (i.e. the OLG) picks 20 unique numbers.  We want to see how many you get the same per draw.  A 'draw' is one random generation of numbers for both the player and the computer.  
 
-The 'Single Draw' section will show you how the game works.  Simply draw the numbers by clicking the 'Draw Player & PC" button and the 'Reload Graph' button in that order.  Optionally, you can click the "Alert Player and PC" button to see the 2 sets of random numbers at anytime after they generated.
+NOTE: When the page intially loads it has some data in the graph.  That is there just to give a nice little graphic to the user before starting.
 
-After a single play of the game, when you reload the graph, a single column in the histogram should have a bar in it.  This represents how many matches there were between the player and the computer.  You can do this over and over to see the pattern.
+The 'Single draw of random numbers' section will show you how the game works.  Simply draw the numbers by clicking the 'Draw Player & PC" button and the 'Reload Graph' button in that order.  Optionally, you can click the "Alert Player and PC" button to see the 2 sets of random numbers at anytime after they generated.
 
-The 'Multiple Draws' section will show you the data after playing the game a large number of times.
+After a single play of the game, when you reload the graph, a single column in the histogram will have a bar in it.  This represents how many matches there were between the player and the computer.  You can do this over and over to see the pattern evolve.  Again, only use this option to see 'how things are working under the hood'.
 
-When the page intially loads it has some data in the graph.  That is there just to give a nice little graphic to the user before starting.
+The 'Multiple draws of random numbers' section will show you the data after playing the game a large number of times.  Like the previous way of playing, you will have to click the 'Reload Graph' button after you draw numbers.
 
-You can hover over each bar which will give you the count of how many times that happened.
+When you hover over a bar with your mouse, it will show the count for that bar.  So if you hover your mouse of over the bar in the '5' column and it shows 24, it means you and the computer matched 5 numbers 24 times.  If you hover of the 0 bar and it shows 10.  You and the computer had 0 matches 10 times.
 
 
 ### Single Draw
-* Randomize Both - generates both (computer and player) of your numbers in one call
-* Alert PC & Human - alert that shows the 2 sets of numbers
+* Draw Player & PC - generates both (computer and player) of your numbers in one call
+* Alert Player and PC - alert that shows the 2 sets of numbers
 
 
 ### Multiple Draws
 * '# of Draws' - the number of times to play the game between the player and the computer
-* Draw - draws random sets of numbers for '# of Draws' times for both the player and computer 
+* Draw Numbers - draws random sets of numbers for '# of Draws' times for both the player and computer 
 
 
 ### Display
-* Reload - reloads the graph with the new data
+* Reload Graph - reloads the graph with the new data
 
 
 ### Odds
