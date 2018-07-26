@@ -236,4 +236,6 @@ function deleteData()
 	matchArray=[0,0,0,0,0,0,0,0,0,0,0]; //stores the values for the match array (number/frequency)
 
 	document.getElementById('numberOfDraws_id').value=0; //set the value on the form to 0
+
+	document.getElementById('btn_render_id').click();
 }
