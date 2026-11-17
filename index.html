@@ -1,134 +1,120 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <!--Script Reference[1]-->
-<script src="zingchart.min.js"></script>
-<script src="chance.min.js"></script>
-<script src="randomizer.js"></script>
-<script type="text/javascript"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Randomiiiiiiizer</title>
+  <script src="zingchart.min.js"></script>
+  <script src="chance.min.js"></script>
+  <script src="randomizer.js"></script>
 </head>
 
 <body>
-  <!--Chart Placement[2]-->
   <div id="chartDiv"></div>
   <hr>
   <p>Single draw of random numbers</p>
   <div id="buttons">
-      <input type="button" value="Draw Player & PC" name="btn_generateBoth" onclick="randomizeComputerAndHuman()" class="">
-      <input type="button" value="Alert Player & PC" name="btn_alertPcHuman" onClick="alertPcHuman()" class="">
+    <input type="button" value="Draw Player & PC" name="btn_generateBoth" onclick="randomizeComputerAndHuman(); countMatchedNumbers()">
+    <input type="button" value="Alert Player & PC" name="btn_alertPcHuman" onclick="alertPcHuman()">
   </div>
 
-<script>
-	var computerArray=new Array(); //stores the generated numbers for the computer
-  var humanArray=new Array(); //store the generated numbers for the player
-  var matchArray=[0,0,0,0,0,0,0,0,0,0,0]; //stores the frequency for each possibility (number of matching numbers between computer and human : 0-10)
-  var initialArray=[0,1,2,3,4,5,6,7,8,9,10]; //this will change or disappear.  using it onLoad so there is a nice graphic to look at.
-
-     var chartData = {
-      type: 'bar',  // Specify your chart type here.
-      title: {
-        text: 'Randomiiiiiiizer' // Adds a title to your chart // !!!!!!!!! MAKE A WaY TO RANDOMIZE THE NUMBER OF 'I' LETTERS YOU SEE IN THE NAME
-      },
-      legend: {}, // Creates an interactive legend
-      "series":[{values:initialArray}],
-      
-      scaleX:{
- 	    label: {
- 	    text: "number of matches",
- 	    color: "red",
- 	    fontSize: 14
-      }
-    },
-
-    scaleY:{
- 	    label: {
- 	    text: "frequency",
- 	    color: "red",
- 	    fontSize: 14
-      }
-    },
-
-    };
-
-    zingchart.render({ // Render Method[3]
-      id: 'chartDiv',
-      data: chartData,
-      height: 400,
-      width: 600
-    });
-
-    //get the value(s) in the array from the external JS file and assign to local array/object
-    function countMatchedNumbers()
-    {
-      computerArray=getComputer();
-      humanArray=getHuman();
-      matchArray=getMatch();
-
-      //render the data
-      renderMyChart();
-    }
-
-    function renderMyChart()
-    {
-      var chartData = {
-      type: 'bar',  // Specify your chart type here.
-      title: {
-        text: 'Randomiiiizer' // Adds a title to your chart // !!!!!!!!! MAKE A WaY TO RANDOMIZE THE NUMBER OF 'I' LETTERS YOU SEE IN THE NAME
-      },
-      legend: {}, // Creates an interactive legend
-      "series":[{values:matchArray}],
-
-      scaleX:{
- 	    label: {
- 	    text: "number of matches",
- 	    color: "red",
- 	    fontSize: 14
-      }
-    },
-
-    scaleY:{
- 	    label: {
- 	    text: "frequency",
- 	    color: "red",
- 	    fontSize: 14
-      }
-    },
-            
-    };
-
-    zingchart.render({ //Render Method[3]
-      id: 'chartDiv',
-      data: chartData,
-      height: 400,
-      width: 600
-    });
-    }
-
-</script>
-  
   <hr>
   <p>Multiple draws of random numbers</p>
   <div id="params">
-      <label for="id_numberOfDraws"># of Draws</label>
-  <input type="text" name="numberOfDraws_name" id="numberOfDraws_id" value="0">
-  <input type="button" value="Draw Numbers" name="btn_draw_name" id="btn_draw_id" onclick="multipleDraws()" class=="">
-  <hr>
-  <p>Display and Data</p>
-  <input type="button" value="Reload Graph" name="btn_render_name" id="btn_render_id" onClick="countMatchedNumbers()" class="">
-  <input type="button" value="Delete Data" name="btn_deleteData_name" id="btn_deleteData_id" onClick="deleteData()" class="">
-  </div>
-
-  <div id=theFiveM>
+    <label for="numberOfDraws_id"># of Draws</label>
+    <input type="text" name="numberOfDraws_name" id="numberOfDraws_id" value="0">
+    <input type="button" value="Draw Numbers" name="btn_draw_name" id="btn_draw_id" onclick="multipleDraws()">
     <hr>
-    <p>Min, Max, Mean, Median and Mode.  The MMMMM values relate to the number of matches, not the random sets of generated data.</p>
-    <input type="button" value="MMMMM" name="btn_MMMMM_name" id="btn_MMMMM_id" onclick="calculateMMMMM()" class=="">
+    <p>Display and Data</p>
+    <input type="button" value="Reload Graph" name="btn_render_name" id="btn_render_id" onclick="countMatchedNumbers()">
+    <input type="button" value="Delete Data" name="btn_deleteData_name" id="btn_deleteData_id" onclick="deleteData()">
   </div>
 
-  <div id=sampling>
-      <hr>
+  <div id="theFiveM">
+    <hr>
+    <p>Min, Max, Mean, Median and Mode. The MMMMM values relate to the number of matches, not the random sets of generated data.</p>
+    <input type="button" value="MMMMM" name="btn_MMMMM_name" id="btn_MMMMM_id" onclick="calculateMMMMM()">
+  </div>
+
+  <div id="sampling">
+    <hr>
     <p>Sampling Distribution</p>
   </div>
-  
+
+  <script>
+    var computerArray = [];
+    var humanArray = [];
+    var matchArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var initialArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    var chartData = {
+      type: 'bar',
+      title: {
+        text: 'Randomiiiiiiizer'
+      },
+      legend: {},
+      series: [{ values: initialArray }],
+      scaleX: {
+        label: {
+          text: 'number of matches',
+          color: 'red',
+          fontSize: 14
+        }
+      },
+      scaleY: {
+        label: {
+          text: 'frequency',
+          color: 'red',
+          fontSize: 14
+        }
+      }
+    };
+
+    zingchart.render({
+      id: 'chartDiv',
+      data: chartData,
+      height: 400,
+      width: 600
+    });
+
+    function countMatchedNumbers() {
+      computerArray = getComputer();
+      humanArray = getHuman();
+      matchArray = getMatch();
+      renderMyChart();
+    }
+
+    function renderMyChart() {
+      var chartData = {
+        type: 'bar',
+        title: {
+          text: 'Randomiiiiiiizer'
+        },
+        legend: {},
+        series: [{ values: matchArray }],
+        scaleX: {
+          label: {
+            text: 'number of matches',
+            color: 'red',
+            fontSize: 14
+          }
+        },
+        scaleY: {
+          label: {
+            text: 'frequency',
+            color: 'red',
+            fontSize: 14
+          }
+        }
+      };
+
+      zingchart.render({
+        id: 'chartDiv',
+        data: chartData,
+        height: 400,
+        width: 600
+      });
+    }
+  </script>
 </body>
 </html>
